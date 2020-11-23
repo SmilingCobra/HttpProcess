@@ -20,7 +20,7 @@ public class TestController {
 
 @RequestMapping("/hello")
     public String hello(BaseRequest baseRequest, HttpServletRequest httpServletRequest){
-   return ResultParseUtil.callback(baseRequest,
+   return ResultParseUtil.callback(baseRequest,"hello",
            request1->
         testProcess.hello(baseRequest,httpServletRequest)
    );

@@ -4,6 +4,7 @@ import com.alibaba.fastjson.JSONObject;
 import com.lw.config.HttpConfigManager;
 import com.lw.entity.BaseRequest;
 import com.lw.entity.RpcProperties;
+import com.lw.util.IOUtil;
 import org.apache.http.HttpEntity;
 import org.apache.http.NameValuePair;
 import org.apache.http.client.config.RequestConfig;
@@ -82,19 +83,19 @@ public abstract class AbstractHttpService<Req extends BaseRequest> implements In
                 HttpPost httpPost = new HttpPost(url);
                 httpPost.setEntity(toStringEntity(params,encode));
                 httpRequestBase = httpPost;
-                System.out.println(String.format("%s post request send",serviceName));
+               IOUtil.print(String.format("%s post request send",serviceName));
                 break;
             case "get":
                 HttpGet httpGet = null;
                 if(params!=null && params.size()>0){
                     String str = paramsToString(params,encode);
-                    System.out.println(String.format("get method params is %s",str));
+                    IOUtil.print(String.format("get method params is %s",str));
                     httpGet = new HttpGet(url+"?"+str);
                 }else {
                     httpGet = new HttpGet(url);
                 }
                 httpRequestBase = httpGet;
-                System.out.println(String.format("%s get request send",serviceName));
+                IOUtil.print(String.format("%s get request send",serviceName));
                 break;
             default:
                 break;

@@ -4,6 +4,7 @@ import com.alibaba.fastjson.JSONObject;
 import com.lw.entity.BaseRequest;
 import com.lw.entity.BaseResponse;
 import com.lw.http.TestHttpService;
+import com.lw.util.IOUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -21,7 +22,7 @@ public class TestProcess {
             service = testHttpService.service(baseRequest);
             response.setData(service);
         } catch (Exception e) {
-            e.printStackTrace();
+            IOUtil.print(e.getMessage());
         }
 
         return response;
