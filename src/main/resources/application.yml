@@ -1,0 +1,9 @@
+server:
+  port: 8080
+libs:
+  rpcPropertiesList:
+    - serviceName: wechat
+      httpMethod: get
+      url: https://api.weixin.qq.com/sns/jscode2session
+      connectionTimeout: 300
+      socketTimeout: 1000
